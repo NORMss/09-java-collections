@@ -10,17 +10,12 @@ public class UserService {
     public void save(final UserResponse user) {
         if (user.id() == 0) {
             users.add(
-                    new UserResponse.Builder(nextId++, user.login(), user.name())
-                            .setAvatar(user.avatar())
-                            .build()
+                    user.builder().setId(nextId++).build()
             );
         } else {
             for (int i = 0; i < users.size(); i++) {
                 if (user.id() == users.get(i).id()) {
-                    users.set(i, new UserResponse.Builder(user.id(), user.login(), user.name())
-                            .setAvatar(user.avatar())
-                            .build()
-                    );
+                    users.set(i, user);
                 }
             }
         }

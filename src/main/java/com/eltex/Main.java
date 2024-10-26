@@ -11,11 +11,11 @@ public class Main {
         userService.save(new UserResponse(0, "diankaD78", "Diana", null));
         userService.save(new UserResponse(0, "lllallke", "Egor", null));
 
-        System.out.println(userService.getAll());
+        System.out.println(userService.getAll()+"\n");
 
         userService.save(new UserResponse(2, "dipanick", "Diana", null));
 
-        System.out.println(userService.getById(2));
+        System.out.println(userService.getById(2)+"\n");
 
         try {
             System.out.println(userService.getById(-1));
